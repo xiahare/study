@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: lei
+Build-Jdk: 15.0.2
+Class-Path: study.kudu-0.0.1-SNAPSHOT.lib/kudu-client-1.14.0.jar study.k
+ udu-0.0.1-SNAPSHOT.lib/async-1.4.1.jar study.kudu-0.0.1-SNAPSHOT.lib/sl
+ f4j-api-1.7.30.jar study.kudu-0.0.1-SNAPSHOT.lib/slf4j-simple-1.7.30.ja
+ r
+Main-Class: study.kudu.KuduLeaderSample
+Created-By: Maven Integration for Eclipse
+
