@@ -11,12 +11,12 @@ import com.clickhouse.client.ClickHouseResponseSummary;
 public class ClickhouseClientOfficial {
 
 	public static void main(String[] args) {
-		String host = "172.30.144.13";
-		 Integer port = 8123;
+//		String host = "172.30.144.13";
+//		 Integer port = 8123;
 		//String host = "10.106.50.99";
 		// Integer port = 8123;
-//		String host = "10.106.49.4";
-//		Integer port = 18123;
+		String host = "10.106.49.4";
+		Integer port = 18123;
 		// only HTTP and gRPC are supported at this point
 		ClickHouseProtocol preferredProtocol = ClickHouseProtocol.HTTP;
 		// you'll have to parse response manually if use different format

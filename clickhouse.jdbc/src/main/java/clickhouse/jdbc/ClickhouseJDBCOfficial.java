@@ -75,13 +75,19 @@ public class ClickhouseJDBCOfficial {
     public static void main(String[] args) {
 		//String host = "10.106.50.99";
     	//String port= "8123";
+    	
 //		String host = "10.106.49.4";
 //		String port= "18123";
+		
 //      String user = System.getProperty("chUser", "admin");
 //      String password = System.getProperty("chPassword", "admin");
 		
 		String host = "172.30.144.13";
 		String port = "8123";
+		
+//		String host = "172.24.172.44";
+//		String port = "8123";
+		
         String user = System.getProperty("chUser", null);
         String password = System.getProperty("chPassword", null);
 		
