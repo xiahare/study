@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug">
+<Configuration status="error">
     <Appenders>
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
+        <Console name="NonePrefixConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n"/>
+        </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.xl.example" level="debug" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
+        <Logger name="com.xl.example" level="info" additivity="false">
+            <AppenderRef ref="NonePrefixConsole"/>
         </Logger>
         <Root level="error">
             <AppenderRef ref="LogToConsole"/>
