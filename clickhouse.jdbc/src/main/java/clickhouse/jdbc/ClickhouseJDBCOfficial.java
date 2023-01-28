@@ -82,17 +82,17 @@ public class ClickhouseJDBCOfficial {
 //      String user = System.getProperty("chUser", "admin");
 //      String password = System.getProperty("chPassword", "admin");
 		
-		String host = "172.30.144.13";
+		String host = "10.106.49.4";
 		String port = "8123";
 		
 //		String host = "172.24.172.44";
 //		String port = "8123";
 		
-        String user = System.getProperty("chUser", null);
-        String password = System.getProperty("chPassword", null);
+        String user = System.getProperty("chUser", "admin");
+        String password = System.getProperty("chPassword", "admin");
 		
     	
-        String url = String.format("jdbc:ch://%s:%d/system", System.getProperty("chHost", host),
+        String url = String.format("jdbc:ch://%s:%d/default", System.getProperty("chHost", host),
                 Integer.parseInt(System.getProperty("chPort", port)));
         String table = "jdbc_example_basic";
 

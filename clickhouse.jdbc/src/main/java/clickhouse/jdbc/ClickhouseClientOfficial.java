@@ -1,12 +1,9 @@
 package clickhouse.jdbc;
 
-import com.clickhouse.client.ClickHouseClient;
-import com.clickhouse.client.ClickHouseFormat;
-import com.clickhouse.client.ClickHouseNode;
-import com.clickhouse.client.ClickHouseProtocol;
-import com.clickhouse.client.ClickHouseRecord;
-import com.clickhouse.client.ClickHouseResponse;
-import com.clickhouse.client.ClickHouseResponseSummary;
+import com.clickhouse.client.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClickhouseClientOfficial {
 
@@ -16,14 +13,15 @@ public class ClickhouseClientOfficial {
 		//String host = "10.106.50.99";
 		// Integer port = 8123;
 		String host = "10.106.49.4";
-		Integer port = 18123;
+		Integer port = 8123;
 		// only HTTP and gRPC are supported at this point
 		ClickHouseProtocol preferredProtocol = ClickHouseProtocol.HTTP;
 		// you'll have to parse response manually if use different format
 		ClickHouseFormat preferredFormat = ClickHouseFormat.RowBinaryWithNamesAndTypes;
 
+
 		// connect to localhost, use default port of the preferred protocol
-		ClickHouseNode server = ClickHouseNode.builder().host(host).port(preferredProtocol,port).build();
+		ClickHouseNode server = ClickHouseNode.builder().host(host).port(preferredProtocol,port).credentials(ClickHouseCredentials.fromUserAndPassword("admin","admin")).build();
 
 		try (ClickHouseClient client = ClickHouseClient.newInstance(preferredProtocol);
 		    ClickHouseResponse response = client.connect(server)
