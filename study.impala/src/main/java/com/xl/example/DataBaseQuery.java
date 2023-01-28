@@ -17,10 +17,8 @@ public class DataBaseQuery {
         try {
             Class.forName(param.getJdbcDriverName());
 
-            //DriverManager.setLoginTimeout(3600000);
+            //DriverManager.setLoginTimeout(5);
             con = DriverManager.getConnection(param.getConnectionUrl());
-
-
 
             Statement stmt = con.createStatement();
 

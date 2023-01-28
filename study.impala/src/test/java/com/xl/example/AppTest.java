@@ -3,6 +3,10 @@ package com.xl.example;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.sql.DriverManager;
 
 /**
  * Unit test for simple App.
@@ -10,6 +14,8 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+
+    Logger logger = LogManager.getLogger();
     /**
      * Create the test case
      *
@@ -100,5 +106,17 @@ public class AppTest
         DataBaseQuery dq = new DataBaseQuery();
         ParamJdbc par = new ParamJdbc("jdbc:hive2://172.18.78.233:21050/db_log_public;auth=noSasl;", "org.apache.hive.jdbc.HiveDriver");
         dq.query(par, sqlStatementShort);
+    }
+
+    public void testHiveJdbcForGlencore()
+    {
+        String sql = "select count(*) from __root_fgt_traffic where dstip like '%fsca%';";
+        //String sql = "select * from __root_fgt_traffic where dstip like '%fsca%' order by itime desc limit 5;";
+        // String sql = "select id,itime,devid from __root_fgt_traffic where dstip='172.17.253.116' limit 5;";
+        DataBaseQuery dq = new DataBaseQuery();
+        //dq.query(ParamJdbc.newHiveParamJdbc("fortianalyzer-test.glencore.net"), sql);
+        dq.query(ParamJdbc.getHiveParam(), sql);
+
+        logger.debug("DriverManager.getLoginTimeout: [{}]",DriverManager.getLoginTimeout());
     }
 }

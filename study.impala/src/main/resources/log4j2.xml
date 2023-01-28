@@ -9,7 +9,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.xl.example" level="info" additivity="false">
+        <Logger name="com.xl.example" level="debug" additivity="false">
             <AppenderRef ref="NonePrefixConsole"/>
         </Logger>
         <Root level="error">
