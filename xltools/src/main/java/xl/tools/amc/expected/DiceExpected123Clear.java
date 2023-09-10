@@ -4,6 +4,17 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Stack;
 
+/**
+ * Division B Individual Round
+ * 2023 Cowconuts Labor Day Math Competition
+ * Cowconuts Math Club
+ * September 3, 2023
+ *
+ * 16. Lawrence’s calculator has only 4 buttons: the numbers 1, 2, and 3 as well as a “clear” button
+ * which clears the display. Lawrence starts with an empty display and presses buttons randomly
+ * until his display contains only the three digits “123”, in that order. What is the expected
+ * number of buttons he must press until this happens?
+ */
 public class DiceExpected123Clear {
     public static void main(String[] args) {
         double avg = 0;
