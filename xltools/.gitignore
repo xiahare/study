@@ -5,3 +5,5 @@ out/
 target/
 build/
 .idea/workspace.xml
+.gitignore
+xltools.iml
