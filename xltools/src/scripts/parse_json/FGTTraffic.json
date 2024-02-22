@@ -1,0 +1,2844 @@
+
+{
+  "tableName": "fgt_traffic",
+  "deviceModel": "fgt",
+  "category": "traffic",
+  "logType": "FGTTraffic",
+  "tablePartitions":[
+    {
+      "type": "hash",
+      "columns": [
+      	"id"      	
+      ],
+      "defaultPartitions": "10"
+    }
+	,
+    {
+      "type": "range",
+      "columns": [
+      	"itime"      	
+      ],
+      "defaultPartitions": "10",
+      "defaultRangePeriodUnit": "day",
+      "defaultRangePeriod": "1"
+    }
+	  
+  ],
+  "columns": [ 
+	{
+      "name": "itime",
+      "type": "timestamp",
+      "primaryKey": "true",
+      "pkOrder" : "0",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": 
+        "timestamp(from_unixtime(fgtTraffic.itime/1000, 'yyyy-MM-dd HH:mm:ss'))"
+      ,
+      "sparkType": "TimestampType"
+    },
+    {
+      "name": "adomid",
+      "type": "bigint",
+      "primaryKey": "true",
+      "pkOrder" : "1",
+
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": "fgtTraffic.adomid",
+      "sparkType": "LongType"
+    }, 
+	{
+      "name": "devid",
+      "type": "string",
+      "primaryKey": "true",
+      "pkOrder" : "2",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": 
+        "fgtTraffic.devid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "vd",
+      "type": "string",
+      "primaryKey": "true",
+      "pkOrder" : "3",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": 
+        "fgtTraffic.vd"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "id",
+      "type": "bigint",
+      "primaryKey": "true",
+      "pkOrder" : "4",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": 
+        "fgtTraffic.id"
+      ,
+      "sparkType": "LongType"
+    },
+
+	{
+      "name": "dtime",
+      "type": "timestamp",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required" : "true",
+      "source": 
+        "timestamp(from_unixtime(fgtTraffic.dtime/1000, 'yyyy-MM-dd HH:mm:ss'))"
+      ,
+      "sparkType": "TimestampType"
+    },
+	{
+      "name": "euid",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.euid"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "epid",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.epid"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "dsteuid",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.dsteuid"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "dstepid",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.dstepid"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "logflag",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.logflag"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "logver",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.logver"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "sfsid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.sfsid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "logid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.logid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "type",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.type"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "subtype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.subtype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "level",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "11",
+      "source": 
+        "fgtTraffic.level"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "action",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.action"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "utmaction",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.utmaction"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "policyid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.policyid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "sessionid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.sessionid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "srcip",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.srcip"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstip",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.dstip"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tranip",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tranip"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "transip",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.transip"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.srcport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "dstport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.dstport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "tranport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tranport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "transport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.transport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "trandisp",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.trandisp"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "duration",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.duration"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "proto",
+      "type": "smallint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "smallint(fgtTraffic.proto)"
+      ,
+      "sparkType": "ShortType"
+    },
+	{
+      "name": "vrf",
+      "type": "tinyint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "tinyint(fgtTraffic.vrf)"
+      ,
+      "sparkType": "ShortType"
+    },
+	{
+      "name": "slot",
+      "type": "smallint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "smallint(fgtTraffic.slot)"
+      ,
+      "sparkType": "ShortType"
+    },
+	{
+      "name": "sentbyte",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.sentbyte"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "rcvdbyte",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.rcvdbyte"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "sentdelta",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.sentdelta"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "rcvddelta",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.rcvddelta"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "sentpkt",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.sentpkt"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "rcvdpkt",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.rcvdpkt"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "user",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.user"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "unauthuser",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.unauthuser"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstunauthuser",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstunauthuser"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.srcname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.dstname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "group",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.group"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "service",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.service"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "app",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "96",
+      "source": 
+        "fgtTraffic.app"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "appcat",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.appcat"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "fctuid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.fctuid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcintfrole",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "10",
+      "source": 
+        "fgtTraffic.srcintfrole"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstintfrole",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "10",
+      "source": 
+        "fgtTraffic.dstintfrole"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcserver",
+      "type": "tinyint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "tinyint(fgtTraffic.srcserver)"
+      ,
+      "sparkType": "ShortType"
+    },
+	{
+      "name": "dstserver",
+      "type": "tinyint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "tinyint(fgtTraffic.dstserver)"
+      ,
+      "sparkType": "ShortType"
+    },
+	{
+      "name": "appid",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.appid"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "appact",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.appact"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "apprisk",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.apprisk"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "wanoptapptype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "9",
+      "source": 
+        "fgtTraffic.wanoptapptype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "policytype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "24",
+      "source": 
+        "fgtTraffic.policytype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "centralnatid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.centralnatid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "channel",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.channel"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "vwpvlanid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.vwpvlanid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "shapingpolicyid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.shapingpolicyid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "eventtime",
+      "type": "timestamp",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "timestamp(from_unixtime(fgtTraffic.eventtime, 'yyyy-MM-dd HH:mm:ss'))"
+      ,
+      "sparkType": "TimestampType"
+    },
+	{
+      "name": "vwlid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.vwlid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "shaperdropsentbyte",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.shaperdropsentbyte"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "shaperdroprcvdbyte",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.shaperdroprcvdbyte"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "shaperperipdropbyte",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.shaperperipdropbyte"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "wanin",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.wanin"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "wanout",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.wanout"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "lanin",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.lanin"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "lanout",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.lanout"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "crscore",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.crscore"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "craction",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.craction"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "crlevel",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "10",
+      "source": 
+        "fgtTraffic.crlevel"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "countapp",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countapp"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countav",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countav"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countdlp",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countdlp"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countemail",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countemail"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countips",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countips"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countweb",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countweb"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countwaf",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countwaf"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countssl",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countssl"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countssh",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countssh"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countdns",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countdns"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "srcuuid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "37",
+      "source": 
+        "fgtTraffic.srcuuid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstuuid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "37",
+      "source": 
+        "fgtTraffic.dstuuid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "poluuid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "37",
+      "source": 
+        "fgtTraffic.poluuid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcmac",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "17",
+      "source": 
+        "fgtTraffic.srcmac"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "mastersrcmac",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "17",
+      "source": 
+        "fgtTraffic.mastersrcmac"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstmac",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "17",
+      "source": 
+        "fgtTraffic.dstmac"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "masterdstmac",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "17",
+      "source": 
+        "fgtTraffic.masterdstmac"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srchwvendor",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.srchwvendor"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srchwversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.srchwversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcfamily",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.srcfamily"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcswversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.srcswversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dsthwvendor",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dsthwvendor"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dsthwversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dsthwversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstfamily",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstfamily"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstswversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstswversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "devtype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.devtype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "devcategory",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.devcategory"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstdevtype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstdevtype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstdevcategory",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.dstdevcategory"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "osname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.osname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "osversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.osversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstosname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstosname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstosversion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstosversion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srccountry",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.srccountry"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstcountry",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstcountry"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcssid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "33",
+      "source": 
+        "fgtTraffic.srcssid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstssid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "33",
+      "source": 
+        "fgtTraffic.dstssid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcintf",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.srcintf"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstintf",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.dstintf"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcinetsvc",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.srcinetsvc"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstinetsvc",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstinetsvc"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "unauthusersource",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.unauthusersource"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstunauthusersource",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstunauthusersource"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "authserver",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.authserver"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "applist",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.applist"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "vpn",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.vpn"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "vpntype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "14",
+      "source": 
+        "fgtTraffic.vpntype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "radioband",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.radioband"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "policyname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.policyname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "policymode",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "8",
+      "source": 
+        "fgtTraffic.policymode"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "sslaction",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "26",
+      "source": 
+        "fgtTraffic.sslaction"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "url",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.url"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "agent",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "1,024",
+      "source": 
+        "fgtTraffic.agent"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "comment",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "1,024",
+      "source": 
+        "fgtTraffic.comment"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "ap",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.ap"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "apsn",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.apsn"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "vwlservice",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.vwlservice"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "vwlquality",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "320",
+      "source": 
+        "fgtTraffic.vwlquality"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "collectedemail",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.collectedemail"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstcollectedemail",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.dstcollectedemail"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "shapersentname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.shapersentname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "shaperrcvdname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.shaperrcvdname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "shaperperipname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.shaperperipname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "msg",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.msg"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "custom_field1",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.custom_field1"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "utmevent",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.utmevent"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "utmsubtype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.utmsubtype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "sender",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "128",
+      "source": 
+        "fgtTraffic.sender"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "recipient",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.recipient"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "virus",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.virus"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "attack",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.attack"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "hostname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.hostname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "catdesc",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "128",
+      "source": 
+        "fgtTraffic.catdesc"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dlpsensor",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dlpsensor"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "utmref",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "4,096",
+      "source": 
+        "fgtTraffic.utmref"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tdinfoid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tdinfoid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "dstowner",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstowner"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tdtype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.tdtype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tdscantime",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tdscantime"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "tdthreattype",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tdthreattype"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "tdthreatname",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tdthreatname"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "tdwfcate",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tdwfcate"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "threatwgts",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.threatwgts"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "threatcnts",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.threatcnts"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "threatlvls",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.threatlvls"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "saasinfo",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.saasinfo"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "ebtime",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.ebtime"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "clouduser",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.clouduser"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "threats",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "0",
+      "source": 
+        "fgtTraffic.threats"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "threattyps",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "0",
+      "source": 
+        "fgtTraffic.threattyps"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "apps",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "0",
+      "source": 
+        "fgtTraffic.apps"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "countff",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countff"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "identifier",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.identifier"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "securityid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.securityid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "securityact",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "32",
+      "source": 
+        "fgtTraffic.securityact"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tz",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "5",
+      "source": 
+        "fgtTraffic.tz"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcdomain",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "255",
+      "source": 
+        "fgtTraffic.srcdomain"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "counticap",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.counticap"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "dstregion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstregion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcregion",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.srcregion"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstcity",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstcity"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srccity",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.srccity"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "signal",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.signal"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "snr",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.snr"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "dstauthserver",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.dstauthserver"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstgroup",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "255",
+      "source": 
+        "fgtTraffic.dstgroup"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstuser",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "256",
+      "source": 
+        "fgtTraffic.dstuser"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "tunnelid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.tunnelid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "vwlname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.vwlname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcthreatfeed",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.srcthreatfeed"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "dstthreatfeed",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.dstthreatfeed"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "psrcport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.psrcport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "pdstport",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.pdstport"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "countsctpf",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countsctpf"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "srcreputation",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.srcreputation"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "dstreputation",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.dstreputation"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "vip",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "64",
+      "source": 
+        "fgtTraffic.vip"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "accessproxy",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.accessproxy"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "gatewayid",
+      "type": "bigint",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.gatewayid"
+      ,
+      "sparkType": "LongType"
+    },
+	{
+      "name": "clientdeviceid",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.clientdeviceid"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "clientdeviceowner",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.clientdeviceowner"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "clientdevicetags",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.clientdevicetags"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "httpmethod",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "20",
+      "source": 
+        "fgtTraffic.httpmethod"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "referralurl",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "512",
+      "source": 
+        "fgtTraffic.referralurl"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "saasname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.saasname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "srcmacvendor",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "66",
+      "source": 
+        "fgtTraffic.srcmacvendor"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "shapingpolicyname",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "36",
+      "source": 
+        "fgtTraffic.shapingpolicyname"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "accessctrl",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "80",
+      "source": 
+        "fgtTraffic.accessctrl"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "countcifs",
+      "type": "int",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "source": 
+        "fgtTraffic.countcifs"
+      ,
+      "sparkType": "IntegerType"
+    },
+	{
+      "name": "proxyapptype",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "9",
+      "source": 
+        "fgtTraffic.proxyapptype"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "clientdevicemanageable",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "16",
+      "source": 
+        "fgtTraffic.clientdevicemanageable"
+      ,
+      "sparkType": "StringType"
+    },
+	{
+      "name": "emsconnection",
+      "type": "string",
+      "primaryKey": "false",
+      
+      "precision" : 0,
+      "scale" : 0,
+      "required": "false",
+      "length": "8",
+      "source": 
+        "fgtTraffic.emsconnection"
+      ,
+      "sparkType": "StringType"
+    }  
+  ]
+}
