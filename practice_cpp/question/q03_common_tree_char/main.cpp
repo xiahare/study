@@ -62,6 +62,7 @@ int main() {
     root->left->left = newNode('D');
     root->left->right = newNode('E');
     root->right->left = newNode('F');
+    root->right->right = newNode('G');
     
     cout << "preorder traversal: ";
     traversePreOrder(root);
