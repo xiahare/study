@@ -28,7 +28,8 @@ public class ConvertPrepareSQL {
     }
 
     private static String convertToSQL(String sqlLog){
-        String[] sql_params = sqlLog.split(" \\[paramArray\\]: ");
+        // String[] sql_params = sqlLog.split(" \\[paramArray\\]: ");
+        String[] sql_params = sqlLog.split(" \\[Param\\]:");
         String prepareStatement = sql_params[0];
         String params = sql_params[1];
         if(0==sql_params[1].indexOf("[")&&(sql_params[1].length()-1)==sql_params[1].lastIndexOf("]")){
