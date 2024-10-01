@@ -4,3 +4,4 @@ shelf/
 out/
 target/
 build/
+*/*xcodeproj/*
